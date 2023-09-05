@@ -110,7 +110,6 @@ const getItemsByQuery = async (req, res) => {
       // Respond with the paginated, filtered, and sorted items
       return res.status(200).send({msg:'data found',filteredItems});
     } catch (error) {
-      console.error('Error fetching items:', error);
       res.status(500).json({ error: 'An error occurred while fetching items', details: error.message });
     }
   };
@@ -202,7 +201,6 @@ const updateItem = async (req, res) => {
       // Return the updated item
       return res.status(200).send({ msg: "Item updated successfully", updatedItem: items[itemIndex] });
     } catch (error) {
-      console.error('Error updating item:', error);
       res.status(500).json({ error: 'An error occurred while updating the item', details: error.message });
     }
   };
@@ -234,7 +232,6 @@ const deleteItem = async (req, res) => {
       // Respond the deleted result
       return res.status(200).send({msg:'data deleted successfully',itemIndex});
     } catch (error) {
-      console.error('Error deleting item:', error);
       res.status(500).json({ error: 'An error occurred while deleting the item', details: error.message });
     }
   };
